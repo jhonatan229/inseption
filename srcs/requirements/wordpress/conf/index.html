@@ -1,129 +1,59 @@
 <!DOCTYPE html>
-<html>
-<head>
-	<meta charset='utf-8'>
-	<title>Inception</title>
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-</head>
-<body>
-	<h1>Inception</h1>
-	<div class="container">
-		<h2> Mandatory part </h2>
-		
-		<p>
-			This project consists in having you set up a small infrastructure composed of different
-			services under specific rules. The whole project has to be done in a virtual machine. You
-			have to use docker-compose
-		</p>
-
-		<p>
-			Each Docker image must have the same name as its corresponding service.
-			Each service has to run in a dedicated container.
-			For performance matters, the containers must be built either from the penultimate stable
-			version of Alpine Linux, or from Debian Buster. The choice is yours.
-		</p>
-
-		<p>
-			You also have to write your own Dockerfiles, one per service. The Dockerfiles must
-			be called in your docker-compose.yml by your Makefile.
-			It means you have to build yourself the Docker images of your project. It is then forbidden to pull ready-made Docker images, as well as using services such as DockerHub
-			(Alpine/Debian being excluded from this rule).
-		</p>
-
-		<p>
-			You then have to set up:
-		</p>
-		<ul>
-			<li>
-				A Docker container that contains NGINX with TLSv1.2 or TLSv1.3 only.
-			</li>
-			<li>
-				A Docker container that contains WordPress + php-fpm (it must be installed and
-				configured) only without nginx.
-			</li>
-			<li>
-				A Docker container that contains MariaDB only without nginx.
-			</li>
-			<li>
-				A volume that contains your WordPress database.
-			</li>
-			<li>
-				A second volume that contains your WordPress website files.
-			</li>
-			<li>
-				A docker-network that establishes the connection between your containers.
-			</li>
-		</ul>
-	</div>
-	<footer>
-		jestevam - <a href="https://github.com/MarcusVinix" target="_blank">Github</a>
-	</footer>
-</body>
+<html lang="en">
+    <head>
+        <title>Search</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+        <link rel="stylesheet" href="utilities.css">
+    </head>
+    <body>
+        <div class="body_site">
+            <div class=" options ">
+                <a id="im" class="margop" href="google_images.html">Imagens</a>
+                <a id="im" class="margop" href="google_adv.html">Google Advanced</a>
+                <div class="margop">
+                    <img  src="option.png" alt="options" height="30px" width="30px">
+                </div>
+                <div class="margop"><div class="sign">Sign in</div></div>
+            </div>
+            <div class="logo expancao mheight">
+                <div class="spacelogo">
+                    <img id="logo_google" src="google.png" alt="google" height="92" width="272">
+                </div>
+            </div>
+            <div class=" bodyclass">
+                <form action="https://www.google.com/search" method="GET" >
+                    <div class="busca" >
+                        <svg id="lp1" style="margin-top: 11px;" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                        </svg>
+                        <input id="search_barp1" type="text" name="q">
+                        <img id="mic" src="mic.png" height="24px" alt="mic">
+                    </div>
+                    <div class="buttons">
+                        <input class="but" type="submit" value="Google Search">
+                        <input class="but" value="I'm Feeling Lucky" aria-label="I'm Feeling Lucky" name="btnI" type="submit" jsaction="trigger.kWlxhc" data-ved="0ahUKEwi1q-i31qbwAhXcHrkGHVeiDnkQ19QECAw">               
+                    </div>            
+                </form>
+            </div>
+            <div class=" under_body">
+               <div class="language">Google offered in: Português (Brasil)</div>
+            </div>    
+            <div class=" baseboard">
+                <div class="country" >Brasil</div>
+                <div class="optionsbase">
+                    <div class="opleft">
+                        <a id="opbase" href="https://about.google/?utm_source=google-BR&utm_medium=referral&utm_campaign=hp-footer&fg=1">About</a>
+                        <a id="opbase" href="https://www.google.com/intl/en_br/ads/?subid=ww-ww-et-g-awa-a-g_hpafoot1_1!o2&utm_source=google.com&utm_medium=referral&utm_campaign=google_hpafooter&fg=1">Advertsing</a>
+                        <a id="opbase" href="https://www.google.com/services/?subid=ww-ww-et-g-awa-a-g_hpbfoot1_1!o2&utm_source=google.com&utm_medium=referral&utm_campaign=google_hpbfooter&fg=1">Business</a>
+                        <a id="opbase" href="https://google.com/search/howsearchworks/?fg=1">How Search works</a>
+                    </div>
+                    <div class="opright">
+                        <a id="opbase" href="https://policies.google.com/privacy?hl=en-BR&fg=1">Privacy</a>
+                        <a id="opbase" href="https://policies.google.com/terms?hl=en-BR&fg=1">Terms</a>
+                        <a id="opbase" href="https://about.google/?utm_source=google-BR&utm_medium=referral&utm_campaign=hp-footer&fg=1">Settings</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
 </html>
-
-<style>
-	* {
-		font-family: 'Roboto', sans-serif;
-		margin: 0;
-		padding: 0;
-	}
-	
-	body {
-		text-align: center;
-		background-color: #bebebe89;
-	}
-
-	h1 {
-		padding: 40px 0;
-		background-color: rgb(108 106 106 / 57%);
-		margin-bottom: 40px;
-		font-weight: 700;
-		border-bottom: solid 5px black;
-	}
-
-	h2 {
-		padding: 15px;
-	}
-
-	p {
-		padding: 10px 10px;
-	}
-
-	ul {
-		padding: 10px 10px;
-		margin: 0;
-		list-style: circle;
-	}
-
-	li {
-		padding: 5px;
-		margin: 0;
-	}
-
-	footer {
-		border-top: solid 5px black;
-		padding: 40px;
-		margin-top: 40px;
-		background-color: rgb(108 106 106 / 57%);
-		font-weight: 700;
-		font-size: 24px;
-	}
-
-	a {
-		text-decoration: underline;
-		color: black;
-	}
-
-	.container {
-		width: 50%;
-		text-align: center;
-		margin-left: auto;
-		margin-right: auto;
-		border: 5px;
-		border-style: inset;
-		border-radius: 30px;
-		padding: 20px;
-	}
-</style>
