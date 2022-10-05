@@ -14,7 +14,10 @@ RUN mkdir /run/php && \
 	mv wordpress /var/www/jestevam/wordpress && \
 	chown -R www-data:www-data /var/www/jestevam/wordpress/ && \
 	chmod -R 755 /var/www/jestevam/wordpress/
-	COPY ./tools/ /usr/local/bin
+
+COPY ./tools/ /usr/local/bin
+
+COPY ./conf/index.html ./srcs/
 
 EXPOSE 9000
 

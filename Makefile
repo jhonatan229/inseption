@@ -8,7 +8,8 @@ all: hosts volume
 hosts:
 ifneq (${DOMAIN}, jestevam.42.fr)
 	sudo touch /etc/hosts
-	sudo cp /etc/hosts ./hosts_backup
+	sudo cp /etc/hosts  ./host_backup
+	sudo touch /etc/hosts
 	sudo rm /etc/hosts
 	sudo cp ./srcs/requirements/tools/hosts /etc/
 endif
@@ -33,4 +34,4 @@ endif
 	docker system prune -a --volumes --force
 	sudo rm -rf /etc/hosts
 	sudo rm -rf ${VOLUME_DIR} 
-	sudo mv ./hosts_backup /etc/hosts
+	sudo mv ./host_backup /etc/hosts

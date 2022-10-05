@@ -2,7 +2,7 @@ FROM debian:buster
 
 WORKDIR /
 
-# pq esse workdir
+# install everything necessary
 RUN apt-get update &&\
 	apt-get install -y \
 	nginx \

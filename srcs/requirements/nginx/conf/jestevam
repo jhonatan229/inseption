@@ -1,3 +1,18 @@
+server {
+	listen 7000;
+	listen [::]:7000;
+
+	server_name jestevam.42.fr;
+
+	root /var/www/jestevam/wordpress;
+
+	index index.html;
+
+	location / {
+		root /var/www/jestevam/wordpress;
+		try_files $uri $uri/ =404;
+	}
+}
 
 server {
 		listen 443 ssl;

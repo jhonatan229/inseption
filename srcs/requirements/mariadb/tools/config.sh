@@ -1,3 +1,5 @@
+#!/bin/sh
+
 PATH_DB=/var/lib/mysql/$DB_NAME
 
 if [ ! -d "$PATH_DB" ]
