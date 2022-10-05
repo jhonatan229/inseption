@@ -1,0 +1,72 @@
+
+version: '3'
+
+services:
+    nginx:
+        depends_on:
+            - wordpress
+        build: ./requirements/nginx
+        image: nginx
+        container_name: nginx
+        networks:
+            - inception-network
+        restart: unless-stopped
+        ports:
+            - "443:443"
+            - "7000:7000"
+        volumes:
+            - wordpress:/var/www/jestevam/wordpress
+
+    mariadb:
+        build: ./requirements/mariadb
+        image: mariadb
+        container_name: mariadb
+        restart: unless-stopped
+        env_file:
+            - .env
+        environment:
+            - MYSQL_USER=${MYSQL_USER}
+            - MYSQL_PASSWORD=${MYSQL_PASSWORD}
+            - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+            - DB_NAME=${DB_NAME}
+        networks:
+            - inception-network
+        volumes:
+            - mariadb:/var/lib/mysql
+      
+
+    wordpress:
+        depends_on:
+            - mariadb
+        build: ./requirements/wordpress
+        image: wordpress
+        container_name: wordpress
+        restart: unless-stopped
+        env_file: .env
+        environment:
+            - DB_HOST=${DB_HOST}
+            - DB_NAME=${DB_NAME}
+            - MYSQL_USER=${MYSQL_USER}
+            - MYSQL_PASSWORD=${MYSQL_PASSWORD}
+        networks:
+          - inception-network
+        volumes:
+            - wordpress:/var/www/jestevam/wordpress
+
+networks:
+    inception-network:
+        driver: bridge
+
+volumes:
+    mariadb:
+        driver: local
+        driver_opts:
+            type: 'none'
+            o: 'bind'
+            device: ${PATH_VOLUME}/mariadb
+    wordpress:
+        driver: local
+        driver_opts:
+            type: 'none'
+            o: 'bind'
+            device: ${PATH_VOLUME}/wordpress
